@@ -1,0 +1,21 @@
+
+confine-controller ==1.0.2
+contourpy==1.1.1
+cycler==0.11.0
+fonttools==4.42.1
+kiwisolver==1.4.5
+matplotlib==3.8.0
+
+numpy==1.24.2
+packaging==23.1
+Pillow==10.0.1
+
+pyparsing          3.1.1
+python-dateutil    2.8.2
+
+robot              20071211 
+setuptools         75.1.0
+six                1.16.0
+SQLAlchemy         1.4.49
+typing_extensions  4.12.2
+Werkzeug           2.3
