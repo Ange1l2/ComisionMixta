@@ -2,7 +2,6 @@
 .vercel
 *.log
 *.pyc
-__pycache__
 
 # Environments 
 .env 
