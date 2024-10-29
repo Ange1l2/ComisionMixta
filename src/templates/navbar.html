@@ -1,0 +1,61 @@
+<!-- CUSTOM CSS STYLESHEET -->
+{% block customCSS %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/uagro.css') }}"
+/>
+{% endblock %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/">
+      <img src="{{ url_for('static', filename='images/logos/cmixta_logo_white_3.svg') }}" alt="Logo CMPAyP" />CMPAyP
+    </a>
+
+    <!-- Botón de menú de hamburguesa para pantallas pequeñas -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto flex-column flex-lg-row align-items-lg-center text-center mt-3 mt-lg-0">
+        <li class="nav-item mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="/">
+            <i class="fas fa-home fa-lg mb-1"></i>
+            Home
+          </a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-item mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('accounts.logout') }}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Salir
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('accounts.login') }}">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Ingresar
+          </a>
+        </li>
+        <li class="nav-item mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('accounts.register') }}">
+            <i class="fa-solid fa-user-plus"></i>
+            Registrar
+          </a>
+        </li>
+        <li class="nav-item mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('accounts.contrato') }}">
+            <i class="fa-solid fa-book"></i>
+            Contrato
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+

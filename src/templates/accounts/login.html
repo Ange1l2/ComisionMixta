@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+<!-- CUSTOM CSS STYLESHEET -->
+{% block customSCSS %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/uagro.css') }}">
+{% endblock %}
+<!-- BODY CONTENT -->
+{% block content %}
+    <form class="form-signin" method="POST" action=""> <!-- action="/login" -->
+        {{ form.csrf_token }}
+        <div class="container-main">
+            <div class="row"> <!-- THE NAME MUST BE: ROW -->
+                <div class="col-md-6 side-image">
+                    <!-- LEFT SIDE -->
+                    <img src="{{ url_for('static', filename='images/logos/escudo_uagro_white.svg') }}" alt="">
+                </div>
+                <div class="col-md-6 side-inputs">
+                    <!-- RIGHT SIDE -->
+                    <div class="input-box">
+                        <img class="img-center" src="{{ url_for('static', filename='images/logos/cmixta_logo_color_text.svg') }}">
+                        <header>Iniciar sesión</header>
+                        <!-- LOGIN INPUT-FIELD -->
+                        <!--div class="input-field"-->
+                        <div class="form-floating">
+                            <i class="fa-solid fa-envelope"></i>
+                            {{ form.email(placeholder="email", class="form-control mb-2 shadow-none") }}
+                            {{ form.email.label }}
+                            {% if form.email.errors %}
+                                {% for error in form.email.errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <!--input class="input" type="text" id="email" name="useremail" required autocomplete="off"-->
+                            <!--label for="email">correo electrónico</label-->
+                        </div>
+                        <!--div class="input-field"-->
+                        <div class="form-floating">
+                            <i class="fa-solid fa-lock"></i>
+                            {{ form.password(placeholder="password", class="form-control mb-2 shadow-none") }}
+                            {{ form.password.label }}
+                            {% if form.password.errors %}
+                                {% for error in form.password.errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <!--input class="input" type="password" id="password" name="password" required-->
+                            <!--label for="password">contraseña</label-->
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" class="submit" value="Ingresar" name="">
+                        </div>
+                        <div class="forget-password">
+                            <span><a href="{{ url_for('accounts.forgot_password') }}">Olvidé mi contraseña</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
