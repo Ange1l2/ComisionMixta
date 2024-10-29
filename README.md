@@ -734,7 +734,6 @@ En este caso con SQLALCHEMY_DATABASE_URI le estamos indicando a la aplicación l
 En este punto haré una pausa para instalar el manejador de base de datos que vamos a utilizar.
 
 ### Instalando la Base de Datos
-
 En este caso utilizaremos **mariadb** y **mysql-workbench**, cabe aclarar que en la actualidad, el primero sustituye al manejador de base de datos **mysql** y el segundo solo es el ambiente gráfico del primero. Así que para instalarlo ejecutamos desde una terminal (fuera del entorno virtual de Flask):
 
 ```bash
