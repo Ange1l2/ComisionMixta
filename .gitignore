@@ -1,12 +1,7 @@
-.vercel
-*.log
-*.pyc
-__pycache__
+venv/             # excluye el entorno virtual
+.env              # excluye las variables de entorno
 
-# Environments 
+__pycache__/      # Todas las carpetas de pycache
+*.py[cod]         # Todos los archivos compilados de python
 
-.venv 
-ENV/ 
-env.bak/ 
-venv.bak/
-env-project
+.pytest_cache     # Todas las carpetas de testing, si es que tenemos

@@ -10,14 +10,15 @@
             <div class="row">
                 <div class="input-box">
                     <img class="img-center" src="{{ url_for('static', filename='images/logos/cmixta_logo_color_text.svg') }}">
-                    <header>Registro de usuarios</header>
+                    <header class="header-user">Registro de usuarios</header>
 
+                    <!-- Nombre -->
                     <div class="form-floating">
                         <i class="fa-solid fa-user"></i>
-                        {{ form.nombre(placeholder="Nombre", class="form-control mb-2 shadow-none") }}
-                        {{ form.nombre.label }}
-                        {% if form.nombre.errors %}
-                            {% for error in form.nombre.errors %}
+                        {{ form.first_name(placeholder="Nombre", class="form-control mb-2 shadow-none") }}
+                        {{ form.first_name.label }}
+                        {% if form.first_name.errors %}
+                            {% for error in form.first_name.errors %}
                                 <div class="alert alert-danger" role="alert">
                                     {{ error }}
                                 </div>
@@ -25,12 +26,13 @@
                         {% endif %}
                     </div>
 
+                    <!-- Apellidos -->
                     <div class="form-floating">
                         <i class="fa-solid fa-user"></i>
-                        {{ form.apellidos(placeholder="Apellidos", class="form-control mb-2 shadow-none") }}
-                        {{ form.apellidos.label }}
-                        {% if form.apellidos.errors %}
-                            {% for error in form.apellidos.errors %}
+                        {{ form.last_name(placeholder="Apellidos", class="form-control mb-2 shadow-none") }}
+                        {{ form.last_name.label }}
+                        {% if form.last_name.errors %}
+                            {% for error in form.last_name.errors %}
                                 <div class="alert alert-danger" role="alert">
                                     {{ error }}
                                 </div>
@@ -38,25 +40,13 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-floating">
-                        <i class="fa-solid fa-venus-mars"></i>
-                        {{ form.genero(class="form-select mb-2 shadow-none") }}
-                        {{ form.genero.label }}
-                        {% if form.genero.errors %}
-                            {% for error in form.genero.errors %}
-                                <div class="alert alert-danger" role="alert">
-                                    {{ error }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
+                    <!-- Fecha de Nacimiento -->
                     <div class="form-floating">
                         <i class="fa-solid fa-calendar"></i>
-                        {{ form.fecha_nacimiento(placeholder="Fecha de Nacimiento", class="form-control mb-2 shadow-none") }}
-                        {{ form.fecha_nacimiento.label }}
-                        {% if form.fecha_nacimiento.errors %}
-                            {% for error in form.fecha_nacimiento.errors %}
+                        {{ form.birthdate(placeholder="Fecha de Nacimiento", class="form-control mb-2 shadow-none") }}
+                        {{ form.birthdate.label }}
+                        {% if form.birthdate.errors %}
+                            {% for error in form.birthdate.errors %}
                                 <div class="alert alert-danger" role="alert">
                                     {{ error }}
                                 </div>
@@ -64,9 +54,52 @@
                         {% endif %}
                     </div>
 
+                    <!-- Teléfono -->
+                    <div class="form-floating">
+                        <i class="fa-solid fa-phone"></i>
+                        {{ form.phone(placeholder="Teléfono", class="form-control mb-2 shadow-none") }}
+                        {{ form.phone.label }}
+                        {% if form.phone.errors %}
+                            {% for error in form.phone.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <!-- Tipo de Usuario -->
+                    <div class="form-floating">
+                        <i class="fa-solid fa-user-shield"></i>
+                        {{ form.user_type(class="form-control mb-2 shadow-none") }}
+                        {{ form.user_type.label }}
+                        {% if form.user_type.errors %}
+                            {% for error in form.user_type.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <!-- Género -->
+                    <div class="form-floating">
+                        <i class="fa-solid fa-venus-mars"></i>
+                        {{ form.gender(class="form-control mb-2 shadow-none") }}
+                        {{ form.gender.label }}
+                        {% if form.gender.errors %}
+                            {% for error in form.gender.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <!-- Email -->
                     <div class="form-floating">
                         <i class="fa-solid fa-envelope"></i>
-                        {{ form.email(placeholder="email", class="form-control mb-2 shadow-none") }}
+                        {{ form.email(placeholder="Correo electrónico", class="form-control mb-2 shadow-none") }}
                         {{ form.email.label }}
                         {% if form.email.errors %}
                             {% for error in form.email.errors %}
@@ -77,35 +110,10 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-floating">
-                        <i class="fa-solid fa-user-shield"></i>
-                        {{ form.tipo_usuario(class="form-select mb-2 shadow-none") }}
-                        {{ form.tipo_usuario.label }}
-                        {% if form.tipo_usuario.errors %}
-                            {% for error in form.tipo_usuario.errors %}
-                                <div class="alert alert-danger" role="alert">
-                                    {{ error }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
-                    <div class="form-floating">
-                        <i class="fa-solid fa-phone"></i>
-                        {{ form.telefono(placeholder="Teléfono", class="form-control mb-2 shadow-none") }}
-                        {{ form.telefono.label }}
-                        {% if form.telefono.errors %}
-                            {% for error in form.telefono.errors %}
-                                <div class="alert alert-danger" role="alert">
-                                    {{ error }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
+                    <!-- Contraseña -->
                     <div class="form-floating">
                         <i class="fa-solid fa-lock"></i>
-                        {{ form.password(placeholder="password", class="form-control mb-2 shadow-none") }}
+                        {{ form.password(placeholder="Contraseña", class="form-control mb-2 shadow-none") }}
                         {{ form.password.label }}
                         {% if form.password.errors %}
                             {% for error in form.password.errors %}
@@ -116,9 +124,10 @@
                         {% endif %}
                     </div>
 
+                    <!-- Confirmar Contraseña -->
                     <div class="form-floating">
                         <i class="fa-solid fa-key"></i>
-                        {{ form.confirm(placeholder="Confirm Password", class="form-control mb-2 shadow-none") }}
+                        {{ form.confirm(placeholder="Confirmar Contraseña", class="form-control mb-2 shadow-none") }}
                         {{ form.confirm.label }}
                         {% if form.confirm.errors %}
                             {% for error in form.confirm.errors %}
@@ -128,6 +137,8 @@
                             {% endfor %}
                         {% endif %}
                     </div>
+
+                    <!-- Botón de Registro -->
                     <div class="input-field">
                         <input type="submit" class="submit" value="Registrar" name="">
                     </div>
@@ -135,5 +146,4 @@
             </div>
         </div>
     </form>
-    <br><br>
 {% endblock %}

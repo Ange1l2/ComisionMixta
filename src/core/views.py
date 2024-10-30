@@ -11,27 +11,3 @@ core_bp = Blueprint('core', __name__)
 @login_required
 def home():
     return render_template('core/home.html')
-
-
-@core_bp.route('/consultas')
-@login_required
-def queries():
-    return render_template('core/queries.html')
-
-
-@core_bp.route('/crerPlantillas')
-@login_required
-def createTemplates():
-    return render_template('core/createTemplates.html')
-
-
-@core_bp.route('/asignarUA')
-@login_required
-def assignUA():
-    return render_template('core/assignUA.html')
-
-
-@core_bp.route('/borrar')
-@login_required
-def delete():
-    return render_template('core/delete.html')

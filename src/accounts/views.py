@@ -15,7 +15,7 @@ accounts_bp = Blueprint('accounts', __name__)
 def login():
     if current_user.is_authenticated:
         flash("Ya has iniciado sesión.", "info")
-        return redirect(url_for("core.home"))
+        return redirect(url_for("home"))
     form = LoginForm(request.form)
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -30,16 +30,16 @@ def login():
 
 @accounts_bp.route("/register", methods=["GET", "POST"])
 def register():
-    # if current_user.is_authenticated:
-    #    flash("Ya estás registrado.", "info")
-    #    return redirect(url_for("core.home"))
+    if current_user.is_authenticated:
+        flash("Ya estás registrado.", "info")
+        return redirect(url_for("core.home"))
     form = RegisterForm(request.form)
     if form.validate_on_submit():
-        user = User(email=form.email.data, password=form.password.data, nombre=form.nombre.data, apellidos=form.apellidos.data, genero=form.genero.data, fechaNacimiento=form.fecha_nacimiento.data, telefono=form.telefono.data, tipoUsuario=form.tipo_usuario.data)
+        user = User(email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
 
-        # login_user(user)
+        login_user(user)
         flash("El usuario ha sido registrado", "success")
 
         return redirect(url_for("core.home"))
@@ -88,3 +88,7 @@ def reset_password(token):
         flash('Tu password ha sido cambiado.')
         return redirect(url_for('accounts.login'))
     return render_template('accounts/reset_password.html', form=form)
+
+@accounts_bp.route('/contrato')
+def contrato():
+    return render_template("accounts/contrato.html", title="Contrato")
